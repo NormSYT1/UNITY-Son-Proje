@@ -25,7 +25,7 @@ public class Fire : MonoBehaviour
     {
         GameObject bullet = Instantiate(bulletObject, bulletPoint.position, bulletPoint.rotation) as GameObject;
         Rigidbody bulletRb = bullet.GetComponent<Rigidbody>();
-        bulletRb.velocity = bulletPoint.forward * bulletSpeed;
+        bulletRb.linearVelocity = bulletPoint.forward * bulletSpeed;
         Destroy(bullet.gameObject,6f);
     }      
 }

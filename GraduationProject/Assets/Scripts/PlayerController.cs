@@ -6,8 +6,8 @@ using TMPro;
 
 public class PlayerController : MonoBehaviour
 { 
-    public float moveSpeed = 5f; // Tankýn ileri/geri hareket hýzý
-    public float rotationSpeed = 50f; // Tankýn dönüþ hýzý
+    public float moveSpeed = 5f; // Tankï¿½n ileri/geri hareket hï¿½zï¿½
+    public float rotationSpeed = 50f; // Tankï¿½n dï¿½nï¿½ï¿½ hï¿½zï¿½
 
     private Rigidbody tankRigidbody;
     public TMP_Text timeText;
@@ -17,13 +17,13 @@ public class PlayerController : MonoBehaviour
     public GameObject lastPanel;
     private void Awake()
     {
-        // Tankýn RigidBody bileþenini alýyoruz
+        // Tankï¿½n RigidBody bileï¿½enini alï¿½yoruz
         tankRigidbody = GetComponent<Rigidbody>();
     }
     private void Update()
     {
         scoreText.text = "Score: " + score;
-        // Hareket ve dönüþ fonksiyonlarýný çaðýrýyoruz
+        // Hareket ve dï¿½nï¿½ï¿½ fonksiyonlarï¿½nï¿½ ï¿½aï¿½ï¿½rï¿½yoruz
         if (time > 1)
         {
             lastPanel.SetActive(false);
@@ -42,22 +42,22 @@ public class PlayerController : MonoBehaviour
     }
     private void Move()
     {
-        // Ýleri/geri hareket için input deðerini alýyoruz
+        // ï¿½leri/geri hareket iï¿½in input deï¿½erini alï¿½yoruz
         float moveInput = Input.GetAxis("Vertical");
-        // Hareket yönünü belirliyoruz
+        // Hareket yï¿½nï¿½nï¿½ belirliyoruz
         Vector3 moveDirection = transform.forward * moveInput;
-        // Hareket yönünü RigidBody üzerinden uyguluyoruz
-        tankRigidbody.velocity = moveDirection * moveSpeed;
+        // Hareket yï¿½nï¿½nï¿½ RigidBody ï¿½zerinden uyguluyoruz
+        tankRigidbody.linearVelocity = moveDirection * moveSpeed;
     }
     private void Rotate()
     {
-        // Tankýn dönüþü için input deðerini alýyoruz
+        // Tankï¿½n dï¿½nï¿½ï¿½ï¿½ iï¿½in input deï¿½erini alï¿½yoruz
         float rotateInput = Input.GetAxis("Horizontal");
-        // Dönüþ yönünü belirliyoruz
+        // Dï¿½nï¿½ï¿½ yï¿½nï¿½nï¿½ belirliyoruz
         float rotationAmount = rotateInput * rotationSpeed * Time.fixedDeltaTime;
-        // Yeni rotasyonu hesaplýyoruz
+        // Yeni rotasyonu hesaplï¿½yoruz
         Quaternion rotation = Quaternion.Euler(0f, rotationAmount, 0f);
-        // Tanký döndürüyoruz
+        // Tankï¿½ dï¿½ndï¿½rï¿½yoruz
         tankRigidbody.MoveRotation(tankRigidbody.rotation * rotation);
     }
 }
